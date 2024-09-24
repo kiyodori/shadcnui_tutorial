@@ -16,6 +16,12 @@ docker compose up -d
 docker compose exec web sh
 ```
 
+shadcn/ui をインストールします。
+
+```bash
+docker compose exec web sh -c 'npx shadcn@latest init'
+```
+
 ## 使い方
 
 shadcn/ui のコンポーネントを追加します。
@@ -48,10 +54,4 @@ docker compose run --rm web sh -c 'npx create-next-app app'
 
 # 一括削除する場合
 docker compose down --rmi all --volumes --remove-orphans
-```
-
-shadcn/ui をインストールします。
-
-```bash
-docker compose exec web sh -c 'npx shadcn@latest init'
 ```
