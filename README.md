@@ -32,9 +32,9 @@ shadcn/ui のコンポーネントを追加します。
 npx shadcn@latest add button
 ```
 
-`app/components/ui/button.jsx` が作成されます。
+`src/components/ui/button.jsx` が作成されます。
 
-`app/app/page.js` を編集します。
+`src/app/page.js` を編集します。
 
 ```js
 import { Button } from "@/components/ui/button";
