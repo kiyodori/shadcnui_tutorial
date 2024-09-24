@@ -4,7 +4,7 @@ shadcn/ui Tutorialは、shadcn/ui を活用する方法を学ぶためのステ�
 
 ## はじめに
 
-Next.js プロジェクトに shadcn/ui を導入する方法を学びます。
+Next.js プロジェクトに shadcn/ui を導入していきます。
 
 Next.js の Docker コンテナを起動します。
 
@@ -32,9 +32,9 @@ shadcn/ui のコンポーネントを追加します。
 npx shadcn@latest add button
 ```
 
-app/app/components/ui/button.jsx が作成されます。
+`app/components/ui/button.jsx` が作成されます。
 
-app/app/app/page.js を編集します。
+`app/app/page.js` を編集します。
 
 ```js
 import { Button } from "@/components/ui/button";
@@ -48,7 +48,7 @@ export default function Home() {
 
 ## 初回構築の方法
 
-Dockerfile と docker-compose.yml だけがある場合、以下のコマンドで Next.js プロジェクトを作成します。
+`Dockerfile` と `docker-compose.yml` だけがある場合、以下のコマンドで Next.js プロジェクトを作成します。
 
 ```bash
 docker compose build --no-cache
