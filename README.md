@@ -4,7 +4,7 @@ shadcn/ui Tutorialは、shadcn/ui を活用する方法を学ぶためのステ�
 
 ## はじめに
 
-Next.js プロジェクトに shadcn/ui を導入していきます。
+Next.js プロジェクトに shadcn/ui を導入していきます。なお、本 Next.js プロジェクトでは学習コストを下げるために TypeScript は使用しません。
 
 Next.js の Docker コンテナを起動します。
 

@@ -36,5 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 # shadcn でアップデートされるファイル
-components/ui
+components/
 components.json
