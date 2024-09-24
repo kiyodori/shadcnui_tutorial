@@ -4,7 +4,9 @@ shadcn/ui Tutorialは、shadcn/ui を活用する方法を学ぶためのステ�
 
 ## はじめに
 
-Docker コンテナを起動します。
+Next.js プロジェクトに shadcn/ui を導入する方法を学びます。
+
+Next.js の Docker コンテナを起動します。
 
 ```bash
 docker compose up -d
@@ -19,7 +21,7 @@ docker compose exec web sh
 shadcn/ui をインストールします。
 
 ```bash
-docker compose exec web sh -c 'npx shadcn@latest init'
+npx shadcn@latest init
 ```
 
 ## 使い方
@@ -46,7 +48,7 @@ export default function Home() {
 
 ## 初回構築の方法
 
-Docker コンテナに Next.js プロジェクトを作成します。
+Dockerfile と docker-compose.yml だけがある場合、以下のコマンドで Next.js プロジェクトを作成します。
 
 ```bash
 docker compose build --no-cache
