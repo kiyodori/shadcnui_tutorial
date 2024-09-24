@@ -24,7 +24,7 @@ shadcn/ui をインストールします。
 npx shadcn@latest init
 ```
 
-localhost:3000 にアクセスすると、サイトの表示を確認できます。
+localhost:3000/index にアクセスすると、サイトの表示を確認できます。
 
 ## 使い方
 
@@ -38,7 +38,7 @@ npx shadcn@latest add button
 
 `src/components/ui/button.jsx` が作成されます。
 
-`src/app/page.js` を編集し、ボタンを表示します。
+`src/pages/index/index.js` を編集し、ボタンを表示します。
 
 ```js
 import { Button } from "@/components/ui/button";
@@ -58,7 +58,7 @@ npx shadcn@latest add calendar
 
 `src/components/ui/calendar.jsx` が作成されます。
 
-`src/app/page.js` を編集し、カレンダーを表示します。
+`src/pages/index/index.js` を編集し、カレンダーを表示します。
 
 ```js
 'use client'
