@@ -24,9 +24,13 @@ shadcn/ui をインストールします。
 npx shadcn@latest init
 ```
 
+localhost:3000 にアクセスすると、サイトの表示を確認できます。
+
 ## 使い方
 
-shadcn/ui のコンポーネントを追加します。
+### ボタンを追加する
+
+shadcn/ui のボタンコンポーネントを追加します。
 
 ```bash
 npx shadcn@latest add button
@@ -34,7 +38,7 @@ npx shadcn@latest add button
 
 `src/components/ui/button.jsx` が作成されます。
 
-`src/app/page.js` を編集します。
+`src/app/page.js` を編集し、ボタンを表示します。
 
 ```js
 import { Button } from "@/components/ui/button";
@@ -44,7 +48,36 @@ export default function Home() {
 }
 ```
 
-これでボタンが表示されます。
+### カレンダーを追加する
+
+shadcn/ui のカレンダーコンポーネントを追加します。
+
+```bash
+npx shadcn@latest add calendar
+```
+
+`src/components/ui/calendar.jsx` が作成されます。
+
+`src/app/page.js` を編集し、カレンダーを表示します。
+
+```js
+'use client'
+
+import React, { useState } from "react"
+import { Calendar } from "@/components/ui/calendar";
+
+export default function Home() {
+  const [date, setDate] = useState(new Date())
+  return (
+    <Calendar
+      mode="single"
+      selected={date}
+      onSelect={setDate}
+      className="rounded-md border"
+    />
+  )
+}
+```
 
 ## 初回構築の方法
 
