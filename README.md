@@ -39,12 +39,12 @@ npx shadcn@latest add button
 
 `app/components/ui/button.tsx` が作成されます。
 
-`app/pages/test/page.tsx` を編集し、ボタンを表示します。
+`app/test/page.tsx` を編集し、ボタンを表示します。
 
 ```js
 import { Button } from "@/components/ui/button";
 
-export default function Home() {
+export default function TestPage() {
   return <Button>Button</Button>;
 }
 ```
@@ -59,16 +59,18 @@ npx shadcn@latest add calendar
 
 `app/components/ui/calendar.tsx` が作成されます。
 
-`app/pages/test/page.tsx` を編集し、カレンダーを表示します。
+`app/test/page.tsx` を編集し、カレンダーを表示します。
 
 ```js
-'use client'
+"use client"
 
-import React, { useState } from "react"
-import { Calendar } from "@/components/ui/calendar";
+import * as React from "react"
 
-export default function Home() {
-  const [date, setDate] = useState(new Date())
+import { Calendar } from "@/components/ui/calendar"
+
+export default function CalendarDemo() {
+  const [date, setDate] = React.useState<Date | undefined>(new Date())
+
   return (
     <Calendar
       mode="single"
@@ -88,36 +90,27 @@ TODO リストのコンポーネントを v0 で作成します。v0 で以下�
 Make a Todo list using tsx in Next.js.
 ```
 
-もし tsx で表示された場合は、tsx に変換するようプロンプトに指示します。
-
-```bash
-Convert the code to tsx.
-```
-
 v0 が作成したコンポーネントをコードに追加します。「Add to Codebase」をクリックします。
 
 ```bash
-npx shadcn@latest add "https://v0.dev/chat/b/b_OImbo1Y?token=xxxxx"
+npx shadcn@latest add [v0 の URL]
 ```
 
-`app/pages/test/test.tsx` を編集し、TODO リストを表示します。
+`app/test/page.tsx` を編集し、TODO リストを表示します。
 
 ```js
-import React from 'react';
-import { TodoList } from '../../components/todo-list';
+import { TodoListComponent } from '../../components/todo-list'
 
-const TestPage = () => {
+export default function TestPage() {
   return (
     <main>
-      <TodoList />
+      <TodoListComponent />
     </main>
-  );
-};
-
-export default IndexPage;
+  )
+}
 ```
 
-## 一から作成する手順
+## 本リポジトリを一から作成する手順
 
 `Dockerfile` を作成します。
 
