@@ -9,6 +9,7 @@ Next.js プロジェクトに shadcn/ui を導入していきます。なお、�
 Next.js の Docker コンテナを起動します。
 
 ```bash
+docker compose build --no-cache
 docker compose up -d
 ```
 
@@ -116,14 +117,75 @@ const IndexPage = () => {
 export default IndexPage;
 ```
 
-## 初回構築の方法
+## 一から作成する手順
 
-`Dockerfile` と `docker-compose.yml` だけがある場合、以下のコマンドで Next.js プロジェクトを作成します。
+`Dockerfile` を作成します。
+
+```docker
+FROM node:22
+
+WORKDIR /app
+
+# 開発サーバーを起動
+CMD ["npm", "run", "dev"]
+```
+
+`docker-compose.yml` を作成します。
+
+```yaml
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+```
+
+Next.js プロジェクトを作成します。
 
 ```bash
 docker compose build --no-cache
 docker compose run --rm web sh -c 'npx create-next-app app'
+```
 
-# 一括削除する場合
+一度 Docker コンテナを削除します。
+
+```bash
 docker compose down --rmi all --volumes --remove-orphans
 ```
+
+app ディレクトリ以下を同期し、サーバーを起動するように `Dockerfile` を編集します。
+
+```docker
+FROM node:22
+
+WORKDIR /app
+
+COPY ./app /app
+
+RUN npm install
+
+# 開発サーバーを起動
+CMD ["npm", "run", "dev"]
+```
+
+`docker-compose.yml` を編集します。
+```yaml
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/app
+```
+
+コンテナを起動します。
+
+```bash
+docker compose build --no-cache
+docker compose up -d
+```
+
+localhost:3000 にアクセスすると、サイトの表示を確認できます。
