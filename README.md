@@ -126,7 +126,6 @@ FROM node:22
 
 WORKDIR /app
 
-# 開発サーバーを起動
 CMD ["npm", "run", "dev"]
 ```
 
@@ -140,6 +139,10 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
+      - node_modules:/app/node_modules
+
+volumes:
+  node_modules:
 ```
 
 Next.js プロジェクトを作成します。
@@ -147,12 +150,6 @@ Next.js プロジェクトを作成します。
 ```bash
 docker compose build --no-cache
 docker compose run --rm web sh -c 'npx create-next-app app'
-```
-
-一度 Docker コンテナを削除します。
-
-```bash
-docker compose down --rmi all --volumes --remove-orphans
 ```
 
 app ディレクトリ以下を同期し、サーバーを起動するように `Dockerfile` を編集します。
@@ -171,6 +168,7 @@ CMD ["npm", "run", "dev"]
 ```
 
 `docker-compose.yml` を編集します。
+
 ```yaml
 services:
   web:
@@ -179,6 +177,10 @@ services:
       - "3000:3000"
     volumes:
       - ./app:/app
+      - node_modules:/app/node_modules
+
+volumes:
+  node_modules:
 ```
 
 コンテナを起動します。
@@ -189,3 +191,13 @@ docker compose up -d
 ```
 
 localhost:3000 にアクセスすると、サイトの表示を確認できます。
+
+その他、補足コマンドを以下に記載します。
+
+```bash
+# コンテナを削除
+docker compose down --rmi all --volumes --remove-orphans
+
+# コンテナを再起動
+docker compose restart
+```
