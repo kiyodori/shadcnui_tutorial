@@ -4,7 +4,7 @@ shadcn/ui Tutorialは、shadcn/ui を活用する方法を学ぶためのステ�
 
 ## はじめに
 
-Next.js プロジェクトに shadcn/ui を導入していきます。なお、本 Next.js プロジェクトでは学習コストを下げるために TypeScript は使用しません。
+Next.js プロジェクトに shadcn/ui を導入していきます。
 
 Next.js の Docker コンテナを起動します。
 
@@ -25,7 +25,7 @@ shadcn/ui をインストールします。
 npx shadcn@latest init
 ```
 
-localhost:3000/index にアクセスすると、サイトの表示を確認できます。
+localhost:3000/test にアクセスすると、サイトの表示を確認できます。
 
 ## 使い方
 
@@ -37,9 +37,9 @@ shadcn/ui のボタンコンポーネントを追加します。
 npx shadcn@latest add button
 ```
 
-`src/components/ui/button.jsx` が作成されます。
+`app/components/ui/button.tsx` が作成されます。
 
-`src/pages/index/index.js` を編集し、ボタンを表示します。
+`app/pages/test/page.tsx` を編集し、ボタンを表示します。
 
 ```js
 import { Button } from "@/components/ui/button";
@@ -57,9 +57,9 @@ shadcn/ui のカレンダーコンポーネントを追加します。
 npx shadcn@latest add calendar
 ```
 
-`src/components/ui/calendar.jsx` が作成されます。
+`app/components/ui/calendar.tsx` が作成されます。
 
-`src/pages/index/index.js` を編集し、カレンダーを表示します。
+`app/pages/test/page.tsx` を編集し、カレンダーを表示します。
 
 ```js
 'use client'
@@ -85,13 +85,13 @@ export default function Home() {
 TODO リストのコンポーネントを v0 で作成します。v0 で以下のプロンプトを入力します。
 
 ```bash
-Make a Todo list using JSX in Next.js.
+Make a Todo list using tsx in Next.js.
 ```
 
-もし tsx で表示された場合は、jsx に変換するようプロンプトに指示します。
+もし tsx で表示された場合は、tsx に変換するようプロンプトに指示します。
 
 ```bash
-Convert the code to JSX.
+Convert the code to tsx.
 ```
 
 v0 が作成したコンポーネントをコードに追加します。「Add to Codebase」をクリックします。
@@ -100,13 +100,13 @@ v0 が作成したコンポーネントをコードに追加します。「Add t
 npx shadcn@latest add "https://v0.dev/chat/b/b_OImbo1Y?token=xxxxx"
 ```
 
-`src/pages/index/index.js` を編集し、TODO リストを表示します。
+`app/pages/test/test.tsx` を編集し、TODO リストを表示します。
 
 ```js
 import React from 'react';
 import { TodoList } from '../../components/todo-list';
 
-const IndexPage = () => {
+const TestPage = () => {
   return (
     <main>
       <TodoList />
